@@ -4,6 +4,8 @@ const PLAYER3 = 'fa-circle-o';
 const PLAYER4 = 'fa-times';
 let round = 1;
 let chapter = 1;
+let xscore=0;
+let oscore=0;
 const board = [
     ['', '', '', '', '', '', '', '', '', '', ''],
     ['', '', '', '', '', '', '', '', '', '', ''],
@@ -29,6 +31,7 @@ function pick(event) {
     const turn1 = round % 2 === 0 ? PLAYER3 : PLAYER4;
     if(round<10) {
         //1
+
         if ((row == 2 || row == 3) && (column == 2 || column == 3)) {
 
             if ((board[2][2] == '') && (board[2][3] == '') && (board[3][3] == '') && (board[3][2] == '')) {
@@ -201,7 +204,12 @@ function pick(event) {
         }
     
     }
-    else if(round>45){
+    if(round>=45&&round<=80){
+		
+		
+		
+		
+		
 		//lewo
         if ((row == 1 || row == 2 || row == 3 || row == 4 || row == 5 || row == 6 || row == 7 || row == 8 || row == 9) && (column == 0))
              {
@@ -321,6 +329,274 @@ function pick(event) {
             }
 			
         }
+		if(round>70)
+		{
+						
+
+
+			let xpoints=0;
+			let opoints=0;
+			
+		
+			let header = document.querySelector("h1");
+header.innerText = "1SCORE: " +xscore +" 2SCORE: " +oscore;
+
+			
+			
+			for(let i=1;i<4;i++)
+			{
+			
+				for(let j=1;j<4;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xpoints > opoints)
+			{
+				xscore=xscore+1;
+			}
+			if(opoints > xpoints)
+			{
+				oscore=oscore+1;
+			}
+			
+			 xpoints=0;
+			 opoints=0;
+			
+			//2
+			
+			for(let i=1;i<4;i++)
+			{
+			
+				for(let j=4;j<7;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//3
+			 xpoints=0;
+			 opoints=0;
+			
+			for(let i=1;i<4;i++)
+			{
+			
+				for(let j=7;j<10;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//4
+			
+			 xpoints=0;
+			 opoints=0;
+			
+			for(let i=4;i<7;i++)
+			{
+			
+				for(let j=1;j<4;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//5
+			
+			for(let i=4;i<7;i++)
+			{
+			
+				for(let j=4;j<7;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//6
+			
+			 xpoints=0;
+			 opoints=0;
+			
+			for(let i=4;i<7;i++)
+			{
+			
+				for(let j=7;j<10;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//7
+			
+			 xpoints=0;
+			 opoints=0;
+			
+			for(let i=7;i<10;i++)
+			{
+			
+				for(let j=1;j<4;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//8
+			for(let i=7;i<10;i++)
+			{
+			
+				for(let j=4;j<7;j++)
+				{
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xscore > oscore)
+			{
+				xpoints=xpoints+1;
+			}
+			if(oscore > xscore)
+			{
+				opoints=opoints+1;
+			}
+			
+			//9
+			
+			 xpoints=0;
+			 opoints=0;
+			
+			for(let i=7;i<10;i++)
+			{
+			
+				for(let j=7;j<10;j++)
+				{
+	
+					if(board[i][j] == 'fa-circle-o')
+					{
+						xpoints=xpoints+1;
+
+					}
+				    if(board[i][j] == 'fa-times')
+					{
+						opoints=opoints+1;
+					}
+				}
+			}
+			if(xpoints > opoints)
+			{
+				xscore=xscore+1;
+			}
+			if(opoints > xpoints)
+			{
+				oscore=oscore+1;
+			}
+			
+			// header = document.querySelector("h2");
+//header.innerText = "1POINTS: " +xpoints +" 2POINTS: " +opoints;
+			
+		}
     }
     
 
