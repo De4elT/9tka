@@ -1,8 +1,14 @@
-body { font-family: sans-serif; }
+body {
+    font-family: sans-serif;
+}
+
 .board {
-    margin: 25%;
-    margin-top: 25%;
-    width: 770px; background: #f0f0f0;
+    margin: auto;
+    width: 60%;
+    border: 5px solid #FFFF00;
+    padding: 10px;
+    width: 770px;
+    background: #f0f0f0;
     grid-template-columns: repeat(11, 1fr);
     grid-template-rows: repeat(11, 70px);
     grid-gap: 3px;
@@ -10,19 +16,94 @@ body { font-family: sans-serif; }
     border: 1px solid #ddd;
     cursor: pointer;
 }
+
 .box {
-    background: #fff; display: flex; justify-content: center; align-items: center;
-    font-size: 2rem; color: #222;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: rgb(27, 22, 16);
 }
-.box:hover {
-    background: #fafafa;
+
+#dragons {
+    text-align: center;
+    color: lightgray;
+    font-family: Copperplate, Papyrus, fantasy;
+    font-size: 55px;
 }
-#zielony{
-    background-color: greenyellow;
+
+#spiders {
+    text-align: center;
+    font-family: Copperplate, Papyrus, fantasy;
+    font-size: 55px;
+    color: green;
 }
-#czerwony{
-    background-color: palevioletred;
+
+#winner {
+
+    position: absolute;
+    left: 18%;
+    top: 120px;
+    transform: translate(-50%, -50%);
+    font-family: Copperplate, Papyrus, fantasy;
+    white-space: nowrap;
+    font-size: 30px;
+    padding: 10px;
+    color:goldenrod;
 }
-#niebieski{
-    background-color: aqua;
+
+#score {
+    position: absolute;
+    left: 18%;
+    top: 190px;
+    transform: translate(-50%, -50%);
+    font-family: Copperplate, Papyrus, fantasy;
+    font-size: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    color: goldenrod;
+}
+
+body {
+    background-color: #333333;
+    color: white
+}
+
+h1 {
+    margin-top: 0%;
+    text-align: CENTER;
+    font-family: CURSIVE;
+    font-size: XXX-LARGE;
+}
+
+
+
+
+button {
+    height: 70px;
+    width: 200px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: rgb(169, 193, 38);
+    border: solid 4px black;
+    border-radius: 30px;
+    color: white;
+    position: absolute;
+    cursor: pointer;
+}
+
+#start {
+    top: 35%;
+    left: 15%;
+}
+
+#replay {
+    top: 55%;
+    left: 15%;
+}
+
+#answer {
+    top: 75%;
+    left: 15%;
 }

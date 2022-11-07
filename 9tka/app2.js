@@ -1,7 +1,4 @@
-function graczVsGracz(){
-    
-
-  
+function komputerVsKomputer(){
 const PLAYER1 = 'fa-mountain';
 const PLAYER2 = 'fa-mountain';
 const PLAYER3 = 'fa-dragon';
@@ -34,10 +31,24 @@ boxes.forEach(box => box.addEventListener('click', pick));
 
 
 
+
+function cpu(x, y)
+{
+   boxes.forEach(function(box) {
+
+    box.click()
+
+  });
+
+}
+
+
+
 function pick(event) {
     var { row, column } = event.target.dataset;
     const turn = round % 2 === 0 ? PLAYER2 : PLAYER1;
     const turn1 = round % 2 === 0 ? PLAYER3 : PLAYER4;
+	var allowedmove=round;
 
 
 
@@ -327,7 +338,6 @@ function pick(event) {
 
                             event.target.classList.remove(turn1);
                             if (board[row][column] != "") {
-                                textColor();
                                 round++
                                 return;
                             }
@@ -336,7 +346,6 @@ function pick(event) {
                             myfield.classList.add(turn1);
                         }
                     }
-                    textColor();
                     round++;
                 }
 
@@ -345,7 +354,7 @@ function pick(event) {
             }
 
         }
-    if (round > 81 && round < 83) {
+    if (round == 82) {
 
         let xpoints = 0;
         let opoints = 0;
@@ -627,7 +636,7 @@ function pick(event) {
 
         if (oscore == xscore) {
             header = document.querySelector("h2");
-            header.innerText = "Spiders WINS!";
+            header.innerText = "Spiders WINS! (Draw by Points)";
         }
 
 
@@ -650,6 +659,11 @@ function pick(event) {
         }
 
     }
+	
+	if(allowedmove!=round)
+	{
+		cpu()
+	}
 
 }
 }
