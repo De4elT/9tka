@@ -1,9 +1,0 @@
-9tka jest rozgrywana na siatce o wymiarach 9x9, podzielonej na dziewięć sekcji 3x3. 
-
-W pierwszej fazie gry, gracze na zmianę rozmieszczają neutralne żetony, które będą pełniły funkcje blokady w dalszych etapach. W każdej sekcji może zostać rozmieszczony maksymalnie jeden żeton. Żetony nie mogą zostać umieszczone na skrajnych polach siatki 9x9.
-
-W drugiej fazie gry gracze na zmianę umieszczają swoje żetony wokół zewnętrznej krawędzi planszy, aż na każdej krawędzi planszy znajdzie się dziewięć żetonów (po jednym na pole), tak aby wokół planszy ułożono łącznie 36 żetonów.
-
-W trzeciej fazie gry gracze na zmianę przesuwają swoje żetony na planszę w linii prostej, aż zatrzymają się z powodu innego żetonu blokującego dalszy ruch do przodu lub aż do krawędzi siatki. Żeton może zostać zablokowany nawet przed wejściem na planszę.
-
-Po tym, jak wszystkie żetony graczy zostaną przesunięte na planszę (lub zablokowane przed wejściem), następuje punktacja: za każdy z dziewięciu regionów 3x3 gracz z największą liczbą żetonów otrzymuje punkt. (W przypadku remisu nikt nie otrzymuje punktu za region). W przypadku remisu wygrywa gracz, który poruszył się jako ostatni.

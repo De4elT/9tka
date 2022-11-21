@@ -345,8 +345,8 @@ function pick(event) {
             }
 
         }
-    if (round > 81 && round < 83) {
-
+    if (round >= 82) {
+ 
         let xpoints = 0;
         let opoints = 0;
 
