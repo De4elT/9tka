@@ -53,9 +53,6 @@ function komputerVsKomputer(){
 
 	}
     
-    
-
-    
     const boxes = [...document.querySelectorAll('.box')];
     boxes.forEach(box => box.addEventListener('click', pick));
         
