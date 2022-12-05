@@ -11,9 +11,11 @@ function komputerVsKomputer(){
     let oldresult=result;
     let turn=0;
     let turn1=0;
+	let deep=2;
+	let cr =0;
     
     
-    const board1 = [
+    const board = [
         ['', '', '', '', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', '', '', '', ''],
         ['', '', '', '', '', '', '', '', '', '', ''],
@@ -28,28 +30,101 @@ function komputerVsKomputer(){
         ['', '', '', '', '', '', '', '', '', '', ''],
     ];
     
-    let xboard = board;
+
+	
+	var xboard = new Array ( );
     
-    
-    play();
-    
-    function play (){
+    for(let i=0;i<deep;i++)
+	{
+		 xboard[i] = [
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+        ['', '', '', '', '', '', '', '', '', '', ''],
+    ];
+	}
+
     
     const boxes = [...document.querySelectorAll('.box')];
     boxes.forEach(box => box.addEventListener('click', pick));
         
+            boxes.forEach(function(box) {
+        if(round%2==1){
+            box.click()
+        }
+      });
+	
+	 function resetsim (){
+    console.log("CRCRCRCRCRCRCRCRCRCR:" +cr);
+	
+    for (let i = 0; i < 11; i++) 
+	{
+		
+    for (let j = 0; j < 11; j++) 
+	{
+		xboard[cr][i][j] = board[i][j];
+    
     }
+	}
+	
+							}
+	 
+	  function resetsimlow (){
+    	if (cr>0)
+		{
+    for (let i = 0; i < 11; i++) 
+	{
+		
+    for (let j = 0; j < 11; j++) 
+	{
+	
+		
+		xboard[cr][i][j] = xboard[cr-1][i][j];
+		
+
+	}
+	
+							}
+		}
+		else
+		{
+			resetsim ();
+		}
+	  }
+    
     
     function botmove(){
     
+			cr=0;
+	        cpu();
+            console.log("bestrow");
+            console.log(bestrow);
+            console.log("bestcolumn");
+            console.log(bestcolumn);
+			
+							    let help;
+								let text;
+	
+	
+
                    //lewo
                 if ((bestrow == 1 || bestrow == 2 || bestrow == 3 || bestrow == 4 || bestrow == 5 || bestrow == 6 || bestrow == 7 || bestrow == 8 || bestrow == 9) && (bestcolumn == 0)) {
     
-     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
+	     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
+	                                bot1.classList.remove('fa-spider');
+
                     let j = 0;
     console.log(bestrow);				
     console.log(board[bestrow][0]);
-                    if ((board[bestrow][0] !== '') && (board[bestrow][0] == 'fa-spider')) {
+                    if (board[bestrow][0] !== '') {
                         for (let i = 1; j < 1; i++) {
                             if (board[bestrow][i] == '') {
     
@@ -58,23 +133,23 @@ function komputerVsKomputer(){
                             }
                             else {
     
-    
                                 j = 1;
-                                bot1.classList.remove('fa-spider');
+								bot1.classList.remove('fa-spider');
+								board[bestrow][0]='';
                                 if (board[bestrow][bestcolumn] != "") {
-                                    textColor()
-                                    round++
+                                    round++;
                                     return;
                                 }
                                 var myfield = document.getElementById((bestrow * 10) + i - 1);
                                 console.log(myfield.dataset);
                                 myfield.classList.add('fa-spider');
     
+	     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
+	                                bot1.classList.remove('fa-spider');
     
     
                             }
                         }
-                        textColor()
                         round++;
                     }
     
@@ -82,11 +157,75 @@ function komputerVsKomputer(){
     
                 }
     
-                //prawo 
+    
+    
+                //gora
+                if ((bestcolumn == 1 || bestcolumn == 2 || bestcolumn == 3 || bestcolumn == 4 || bestcolumn == 5 || bestcolumn == 6 || bestcolumn == 7 || bestcolumn == 8 || bestcolumn == 9) && (bestrow == 0)) {
+    
+						
+								help = bestrow;
+								text = help.toString();
+	
+
+
+                var bot1 = document.getElementById(text + bestcolumn);
+				                               bot1.classList.remove('fa-spider');
+											   
+                    let j = 0;
+    
+                    if ((board[0][bestcolumn] !== '') && (board[0][bestcolumn] == 'fa-spider')) {
+                        for (let i = 1; j < 1; i++) {
+							if(board[i][bestcolumn] == 'fa-spider'){
+							}
+                            if (board[i][bestcolumn] == '') {
+    
+                                board[i][bestcolumn] = board[i - 1][bestcolumn];
+                                board[i - 1][bestcolumn] = '';
+                            }
+                            else {
+                                j = 1;
+								
+                                bot1.classList.remove('fa-spider');
+								board[0][bestcolumn]='';
+                                if (board[bestrow][bestcolumn] != "") {
+                                    round++;
+                                    return;
+                                }
+								help = i-1;
+								text = help.toString();
+                                var myfield = document.getElementById((text) + bestcolumn);
+                                console.log(myfield.dataset);
+                                myfield.classList.add('fa-spider');
+								
+								
+								help = bestrow;
+								text = help.toString();
+	
+
+
+                var bot1 = document.getElementById(text + bestcolumn);
+				                               bot1.classList.remove('fa-spider');
+                            }
+                        }
+                        round++;
+                    }
+    
+    
+    
+                }
+				
+				            //prawo 
     
                 if ((bestrow == 1 || bestrow == 2 || bestrow == 3 || bestrow == 4 || bestrow == 5 || bestrow == 6 || bestrow == 7 || bestrow == 8 || bestrow == 9) && (bestcolumn == 10)) {
     
-     var bot1= document.getElementById((bestrow * 10) + bestcolumn);
+	                   	
+													help = bestrow;
+								text = help.toString();
+	
+     var bot1= document.getElementById((text) + bestcolumn);
+	 
+	                                bot1.classList.remove('fa-spider');            
+			
                     let j = 0;
     
                     if ((board[bestrow][10] !== '') && (board[bestrow][10] == 'fa-spider')) {
@@ -97,72 +236,46 @@ function komputerVsKomputer(){
                                 board[bestrow][i + 1] = '';
                             }
                             else {
-    
                                 j = 1;
     
                                 bot1.classList.remove('fa-spider');
+								board[bestrow][10]='';
                                 if (board[bestrow][bestcolumn] != "") {
-                                    textColor()
-                                    round++
+                                    round++;
                                     return;
                                 }
-                                var myfield = document.getElementById((bestrow * 10) + i + 1);
-                                console.log(myfield.dataset);
+								help = bestrow;
+								text = help.toString();
+                                var myfield = document.getElementById((text) + (i + 1));							
                                 myfield.classList.add('fa-spider');
+								
+													help = bestrow;
+								text = help.toString();
+	
+     var bot1= document.getElementById((text) + bestcolumn);
+	 
+	                                bot1.classList.remove('fa-spider');
                             }
                         }
-                        textColor()
                         round++;
                     }
+				}
     
     
     
-                }
-    
-                //gora
-                if ((bestcolumn == 1 || bestcolumn == 2 || bestcolumn == 3 || bestcolumn == 4 || bestcolumn == 5 || bestcolumn == 6 || bestcolumn == 7 || bestcolumn == 8 || bestcolumn == 9) && (bestrow == 0)) {
-    
-                var bot1 = document.getElementById((bestrow) + bestcolumn);
-                    let j = 0;
-    
-                    if ((board[0][bestcolumn] !== '') && (board[0][bestcolumn] == 'fa-spider')) {
-                        for (let i = 1; j < 1; i++) {
-                            if (board[i][bestcolumn] == '') {
-    
-                                board[i][bestcolumn] = board[i - 1][bestcolumn];
-                                board[i - 1][bestcolumn] = '';
-                            }
-                            else {
-    
-                                j = 1;
-    
-                                bot1.classList.remove('fa-spider');
-                                if (board[bestrow][bestcolumn] != "") {
-                                    textColor()
-                                    round++
-                                    return;
-                                }
-                                var myfield = document.getElementById((i - 1) + bestcolumn);
-                                console.log(myfield.dataset);
-                                myfield.classList.add('fa-spider');
-                            }
-                        }
-                        textColor()
-                        round++;
-                    }
-    
-    
-    
-                }
+                
     
                 //dol 
     
                 if ((bestcolumn == 1 || bestcolumn == 2 || bestcolumn == 3 || bestcolumn == 4 || bestcolumn == 5 || bestcolumn == 6 || bestcolumn == 7 || bestcolumn == 8 || bestcolumn == 9) && (bestrow == 10)) {
     
-    var bot1 = document.getElementById((bestrow) + bestcolumn);
+							
     
                     let j = 0;
-    
+    	help = bestrow;
+								text = help.toString();
+    var bot1 = document.getElementById((text) + bestcolumn);
+	                               bot1.classList.remove('fa-spider');
                     if ((board[10][bestcolumn] !== '') && (board[10][bestcolumn] == 'fa-spider')) {
                         for (let i = 9; j < 1; i--) {
                             if (board[i][bestcolumn] == '') {
@@ -171,77 +284,179 @@ function komputerVsKomputer(){
                                 board[i + 1][bestcolumn] = '';
                             }
                             else {
-    
+      board[i + 1][bestcolumn] = '';
                                 j = 1;
     
                                 bot1.classList.remove('fa-spider');
+																board[10][bestcolumn]='';
                                 if (board[bestrow][bestcolumn] != "") {
                                     round++
                                     return;
                                 }
-                                var myfield = document.getElementById((i + 1) + bestcolumn);
-                                console.log(myfield.dataset);
+								help = i+1;
+								text = help.toString();
+                                var myfield = document.getElementById((text) + bestcolumn);
+
                                 myfield.classList.add('fa-spider');
+								
+									help = bestrow;
+								text = help.toString();
+    var bot1 = document.getElementById((text) + bestcolumn);
+	                               bot1.classList.remove('fa-spider');
                             }
                         }
+						                        round++;
                     }
     
     
     
                 }
     
-            }
+}
     
     
-    
-    
+        function cpuset()
+		{
+			/*
+		for(let k=0;k<1;k--)
+		{			
+		 for(let row=1; row<10; row++)
+        {	
+	
+	
+			if ((board[row][10]=='fa-dragon')&&(board[row][0]=='')&&(board[row][0]!='fa-spider'))
+			{
+				board[row][0]=='fa-spider'
+				help = row;
+				text = help.toString();
+                var myfield = document.getElementById((text) + (0));							
+                myfield.classList.add('fa-spider');
+				round++;
+						k=10;
+			}
+		}
+		k=10;
+		}
+			
+		/*	if ((board[row][0]=='fa-dragon')&&(board[row][10]==''))
+			{
+				board[row][10]=='fa-spider'
+				help = row;
+				text = help.toString();
+                var myfield = document.getElementById((text) + (10));							
+                myfield.classList.add('fa-spider');
+								round++;
+				return;
+				
+			}
+
+		}
+		 for(let column=1; column<10; column++)
+		 {
+			if ((board[0][column]=='fa-dragon')&&(board[10][column]==''))
+			{
+				board[10][column]=='fa-spider'
+				help = column;
+				text = help.toString();
+                var myfield = document.getElementById(10 + (column));							
+                myfield.classList.add('fa-spider');
+								round++;
+				return;
+			}
+			/*
+				if ((board[10][column]=='fa-dragon')&&(board[0][column]==''))
+			{
+				board[0][column]=='fa-spider'
+				help = column;
+				text = help.toString();
+                var myfield = document.getElementById(0 + (column));							
+                myfield.classList.add('fa-spider');
+								round++;
+				return;
+				
+			}
+			
+		 }
+		 */
+		 
+				       boxes.forEach(function(box) {
+        if(round%2==1){
+            box.click()
+        }
+      });
+			
+	}
     
     function cpu()
     {
-            let deep=1;
+		deep=1;
+if(cr%2==0)
+{
+	let grantrow=1000;
+	let grantcolumn=1000;
             let xpoints = 0;
             let opoints = 0;
     
-         xboard = board;
         
         bestrow=100;
         bestcolumn=100;
+		
         for(let row=1; row<10; row++)
         {	
+
     
     
                     let j = 0;
     
                 
-                         if ((xboard[row][0] !== '') && (xboard[row][0] == 'fa-spider')) {
+                         if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-spider')) {
                         for (let i = 1; j < 1; i++) {
-                            if (xboard[row][i] == '') {
-    
-                                xboard[row][i] = xboard[row][i - 1];
-                                xboard[row][i - 1] = '';
+							
+                            if (xboard[cr][row][i] == '') {
+							
+	
+							
+                                xboard[cr][row][i] = xboard[cr][row][i - 1];
+                                xboard[cr][row][i - 1] = '';
+
                             }
                             else {
-                                       
-                                
+											if(cr==0)
+			{
+			grantrow=row;	
+			}
+
+										if(cr==deep-1)
+									   {
                                         checkcost();
-    
-                                        
-                                    if (result>oldresult)
+										resetsimlow(); 
+										cr=0;
+										              if (result>oldresult)
                                     {
-    
                                             oldresult=result;
-                                            bestrow=row;
+                                            bestrow=grantrow;
                                             bestcolumn=0;
-                                            xboard = board;
+											
                                                                           
                                     }
+									   }
+									   else
+									   {
+										cr++;
+										cpu();   
+										
+									   }
+                                        
+                     
     
                                 j = 1;
-                                 return;
                                 
                             }
-    
-                                    
+									if(i<0)
+								  {
+									j = 1;  
+								  }		
+                                   
                                 }
                                 
                                     }
@@ -249,52 +464,12 @@ function komputerVsKomputer(){
     }
     
     
-    ///////////
-    
-     xboard = board;
-        
-    for(let row=1; row<10; row++)
-        {	
-    
-    
-                    let j = 0;
-    
-                
-        if ((xboard[row][10] !== '') && (xboard[row][10] == 'fa-spider')) {
-                        for (let i = 9; j < 1; i--) {
-                            if (xboard[row][i] == '') {
-    
-                                xboard[row][i] = xboard[row][i + 1];
-                                xboard[row][i + 1] = '';
-                            }
-                            else {
-                                    checkcost();
-                                    if (result>oldresult)
-                                    {
-    
-                                            oldresult=result;
-                                            bestrow=row;
-                                            bestcolumn=10;
-                                            xboard = board;
-                                    }
-    
-                                j = 1;
-                                return;
-                                
-                            }
-                                    
-                                    
-                                    
-                                }
-                                
-                                    }
-                                     
-    }
+   
     
     //////////////////////////////
     
     
-     xboard = board;
+     resetsim();
     
         for(let column=1; column<10; column++)
         {	
@@ -303,30 +478,111 @@ function komputerVsKomputer(){
                     let j = 0;
     
                 
-           if ((xboard[0][column] !== '') && ([0][column] == 'fa-spider')) {
+           if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-spider')) {
                         for (let i = 1; j < 1; i++) {
-                            if (xboard[i][column] == '') {
+                            if (xboard[cr][i][column] == '') {
     
-                                xboard[i][column] = xboard[i - 1][column];
-                                xboard[i - 1][column] = '';
+                                xboard[cr][i][column] = xboard[cr][i - 1][column];
+                                xboard[cr][i - 1][column] = '';
                             }
                             else {
+																if(cr==0)
+			{
+			grantcolumn=column;
+			}
     
-                                checkcost();
-                                    if (result>oldresult)
+                                
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+										resetsimlow(); 
+										cr=0;
+										 if (result>oldresult)
                                     {
     
                                             oldresult=result;
                                             bestrow=0;
-                                            bestcolumn=column;
-                                            xboard = board;
+                                            bestcolumn=grantcolumn;
+                                            
                                     }
+									   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                   
     
                                 j = 1;
-                                return;
                                 
                             }
                         
+                                    if(i<0)
+								  {
+									j = 1;  
+								  }		  
+                                    
+                                }
+                                
+                                    }
+                                     
+    }
+         ///////////
+    
+     resetsim();
+        
+    for(let row=1; row<10; row++)
+        {	
+    
+
+    
+    
+    
+                    let j = 0;
+    
+				console.log(xboard[cr][row][0]); 
+        if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-spider')) {
+
+                        for (let i = 9; j < 1; i--) {
+                            if (xboard[cr][row][i] == '') {
+    
+                                xboard[cr][row][i] = xboard[cr][row][i + 1];
+                                xboard[cr][row][i + 1] = '';
+                            }
+                            else {
+																if(cr==0)
+			{
+			grantrow=row;	
+			}
+                                   
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+										resetsimlow(); 
+										cr=0;
+										  if (result>oldresult)
+                                    {
+    
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=10;
+                                            
+                                    }
+									   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
+    
+                                j = 1;
+                                
+                            }
+                                      if(i<0)
+								  {
+									j = 1;  
+								  }		
                                     
                                     
                                 }
@@ -335,42 +591,337 @@ function komputerVsKomputer(){
                                      
     }
         
-        
         ////////
+		
+		
         
-         xboard = board;
+        resetsim();
     
     for(let column=1; column<10; column++)
+        {	
+	
+
+  
+                      let j = 0;
+                
+           if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-spider')) {
+                        for (let i = 9; j < 1; i--) {
+							console.log(xboard[cr][i][column]);
+                            if (xboard[cr][i][column] == '') {
+    
+                                xboard[cr][i][column] = xboard[cr][i + 1][column];
+                                xboard[cr][i + 1][column] = '';
+
+                            }
+                            else {
+																if(cr==0)
+			{
+			grantcolumn=column;
+			}
+                                    
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+										resetsimlow(); 
+										cr=0;
+										  if (result>oldresult)
+                                    {
+    
+                                            oldresult=result;
+                                            bestrow=10;
+                                            bestcolumn=grantcolumn;
+                                           
+                                    }
+									   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
+    
+                                j = 1;
+                                
+                            }
+                                
+                                     if(i<0)
+								  {
+									j = 1;  
+								  }		 
+                                    
+                                }
+                                
+                                    }
+                                     
+    }
+    
+    
+    
+    }
+	
+	
+	if(cr%2==1)
+		console.log("Symuluje ruch 2");
+{
+		let grantrow=1000;
+	let grantcolumn=1000;
+            let xpoints = 0;
+            let opoints = 0;
+    
+     resetsim();
+        
+        bestrow=100;
+        bestcolumn=100;
+		
+        for(let row=1; row<10; row++)
+        {	
+
+    
+    
+                    let j = 0;
+    
+                
+                         if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-dragon')) {
+                        for (let i = 1; j < 1; i++) {
+							
+                            if (xboard[cr][row][i] == '') {
+							
+	
+							
+                                xboard[cr][row][i] = xboard[cr][row][i - 1];
+                                xboard[cr][row][i - 1] = '';
+
+                            }
+                            else {
+																if(cr==0)
+			{
+			grantrow=row;	
+			}
+
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+											cr=0;
+											j = 1;
+
+										                                  if (result>oldresult)
+                                    {
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=0;
+										
+                                                                          
+                                    }
+													   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
+    
+                                j = 1;
+                                
+                            }
+                                
+                                     if(i<0)
+								  {
+									j = 1;  
+								  }		 
+                                    
+                                }
+                                
+                                    }
+                                     
+    }
+    
+   
+    
+    //////////////////////////////
+    
+    
+     resetsim();
+    
+        for(let column=1; column<10; column++)
         {	
     
     
                     let j = 0;
     
                 
-           if ((xboard[10][column] !== '') && (xboard[10][column] == 'fa-spider')) {
-                        for (let i = 9; j < 1; i--) {
-                            if (xboard[i][column] == '') {
+           if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-dragon')) {
+                        for (let i = 1; j < 1; i++) {
+                            if (xboard[cr][i][column] == '') {
     
-                                xboard[i][column] = xboard[i + 1][column];
-                                xboard[i + 1][column] = '';
+                                xboard[cr][i][column] = xboard[cr][i - 1][column];
+                                xboard[cr][i - 1][column] = '';
                             }
                             else {
-                                    checkcost();
-                                    if (result>oldresult)
+																if(cr==0)
+			{	
+			grantcolumn=column;
+			}
+    
+                                
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+											cr=0;
+											j = 1;
+										 if (result>oldresult)
+                                    {
+    
+                                            oldresult=result;
+                                            bestrow=0;
+                                            bestcolumn=grantcolumn;
+										
+                                            
+                                    }
+										   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
+    
+                                j = 1;
+                                
+                            }
+                                
+                                     if(i<0)
+								  {
+									j = 1;  
+								  }		 
+                                    
+                                }
+                                
+                                    }
+                                     
+    }
+         ///////////
+    
+     resetsim();
+        
+    for(let row=1; row<10; row++)
+        {	
+    
+
+    
+    
+    
+                    let j = 0;
+    
+				console.log(xboard[cr][row][0]); 
+        if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-dragon')) {
+
+                        for (let i = 9; j < 1; i--) {
+                            if (xboard[cr][row][i] == '') {
+    
+                                xboard[cr][row][i] = xboard[cr][row][i + 1];
+                                xboard[cr][row][i + 1] = '';
+                            }
+                            else {
+																if(cr==0)
+			{
+			grantrow=row;	
+			}
+                                   
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+											cr=0;
+											j = 1;
+										 if (result>oldresult)
+                                    {
+    
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=10;
+								
+                                            
+                                    }
+											   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
+    
+                                j = 1;
+                                
+                            }
+                                
+                                     if(i<0)
+								  {
+									j = 1;  
+								  }		 
+                                    
+                                }
+                                
+                                    }
+                                     
+    }
+        
+        ////////
+		
+		
+        
+        resetsim();
+    
+    for(let column=1; column<10; column++)
+        {	
+	
+
+  
+                      let j = 0;
+                
+           if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-dragon')) {
+                        for (let i = 9; j < 1; i--) {
+							console.log(xboard[cr][i][column]);
+                            if (xboard[cr][i][column] == '') {
+    
+                                xboard[cr][i][column] = xboard[cr][i + 1][column];
+                                xboard[cr][i + 1][column] = '';
+
+                            }
+                            else {
+																if(cr==0)
+			{
+			grantcolumn=column;
+			}
+                                    
+										if(cr==deep-1)
+									   {
+                                        checkcost();
+											cr=0;
+											j = 1;
+										         if (result>oldresult)
                                     {
     
                                             oldresult=result;
                                             bestrow=10;
-                                            bestcolumn=column;
-                                            xboard = board;
+                                            bestcolumn=grantcolumn;
+										
+                                           
                                     }
+										   }
+									   else
+									   {
+										   cr++;
+										cpu();   
+									   }
+                                  
     
                                 j = 1;
-                                return;
                                 
                             }
                                 
-                                    
+                                     if(i<0)
+								  {
+									j = 1;  
+								  }		 
                                     
                                 }
                                 
@@ -381,6 +932,9 @@ function komputerVsKomputer(){
     
     
     }
+	
+	
+	}
     
         
                         
@@ -395,6 +949,8 @@ function komputerVsKomputer(){
         
         function checkcost()					
         {
+
+			
              let xpoints = 0;
              let opoints = 0;
             
@@ -403,10 +959,10 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 1; j < 4; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -427,10 +983,10 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 4; j < 7; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -450,10 +1006,10 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 7; j < 10; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -474,10 +1030,10 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 1; j < 4; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -498,10 +1054,10 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 4; j < 7; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -522,10 +1078,10 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 7; j < 10; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -546,10 +1102,10 @@ function komputerVsKomputer(){
             for (let i = 7; i < 10; i++) {
     
                 for (let j = 1; j < 4; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -570,10 +1126,10 @@ function komputerVsKomputer(){
             for (let i = 7; i < 10; i++) {
     
                 for (let j = 4; j < 7; j++) {
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -596,11 +1152,11 @@ function komputerVsKomputer(){
     
                 for (let j = 7; j < 10; j++) {
     
-                    if (xboard[i][j] == 'fa-dragon') {
+                    if (xboard[cr][i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
     
                     }
-                    if (xboard[i][j] == 'fa-spider') {
+                    if (xboard[cr][i][j] == 'fa-spider') {
                         opoints = opoints + 1;
                     }
                 }
@@ -613,19 +1169,11 @@ function komputerVsKomputer(){
                 oscore = oscore + 1;
             }
     
-    
-            if (xscore > oscore) {
-            result= -1;
-            }
-    
-            if (oscore > xscore) {
-            result= 1;
-            }
-    
-            if (oscore == xscore) {
-            result= 0;
-            }
-    
+			result = oscore-xscore; 
+			              xpoints = 0;
+              opoints = 0;
+			  xscore=0;
+			  oscore=0;
     
           
     
@@ -640,18 +1188,7 @@ function komputerVsKomputer(){
          turn1 = round % 2 === 0 ? PLAYER3 : PLAYER4;
         var allowedmove=round;
         
-        if((turn1==PLAYER3)&&(round > 45))
-        {
-            cpu();
-            console.log("bestrow");
-            console.log(bestrow);
-            console.log("bestcolumn");
-            console.log(bestcolumn);
-            
-            botmove();
-            
-            round++;
-        }
+       
     
     
     
@@ -827,18 +1364,22 @@ function komputerVsKomputer(){
                             else {
     
     
-                                j = 1;
+                                
                                 event.target.classList.remove(turn1);
+								board[row][0]='';
+								j = 1;
                                 if (board[row][column] != "") {
                                     textColor()
                                     round++
                                     return;
                                 }
-                                var myfield = document.getElementById((row * 10) + i - 1);
-                                console.log(myfield.dataset);
+
+    							help = row;
+								text = help.toString();
+                                var myfield = document.getElementById((text) + (i - 1));							
                                 myfield.classList.add(turn1);
-    
-    
+								
+								event.target.classList.remove(turn1);
     
                             }
                         }
@@ -865,18 +1406,27 @@ function komputerVsKomputer(){
                                 board[row][i + 1] = '';
                             }
                             else {
-    
+								
+                                event.target.classList.remove(turn1);
+																	board[row][10]='';
                                 j = 1;
     
-                                event.target.classList.remove(turn1);
+
                                 if (board[row][column] != "") {
                                     textColor()
                                     round++
                                     return;
                                 }
-                                var myfield = document.getElementById((row * 10) + i + 1);
-                                console.log(myfield.dataset);
+								
+								help = row;
+								text = help.toString();
+                                var myfield = document.getElementById((text) + (i + 1));							
                                 myfield.classList.add(turn1);
+								
+								event.target.classList.remove(turn1);
+								
+								
+					
                             }
                         }
                         textColor()
@@ -902,17 +1452,26 @@ function komputerVsKomputer(){
                             }
                             else {
     
-                                j = 1;
+                               
     
                                 event.target.classList.remove(turn1);
+								board[0][column]='';
+								 j = 1;
                                 if (board[row][column] != "") {
                                     textColor()
                                     round++
                                     return;
                                 }
-                                var myfield = document.getElementById((i - 1) + column);
-                                console.log(myfield.dataset);
+    
+								help = column;
+								text = help.toString();
+                                var myfield = document.getElementById((i-1) + text);							
                                 myfield.classList.add(turn1);
+								
+								event.target.classList.remove(turn1);
+    
+								
+								
                             }
                         }
                         textColor()
@@ -939,16 +1498,22 @@ function komputerVsKomputer(){
                             }
                             else {
     
-                                j = 1;
+                               
     
                                 event.target.classList.remove(turn1);
+								board[10][column]='';
+								 j = 1;
                                 if (board[row][column] != "") {
                                     round++
                                     return;
                                 }
-                                var myfield = document.getElementById((i + 1) + column);
-                                console.log(myfield.dataset);
+                   
+															help = column;
+								text = help.toString();
+                                var myfield = document.getElementById((i+1) + text);							
                                 myfield.classList.add(turn1);
+								
+								event.target.classList.remove(turn1);
                             }
                         }
                         round++;
@@ -1265,6 +1830,27 @@ function komputerVsKomputer(){
     
         }
         
-    play();
+		        if((round!=allowedmove)&&(round <= 45))
+        {
+         cpuset();
+
+		}
+   
+	
+	       if((round!=allowedmove)&&(round > 46))
+        {
+            botmove();
+			resetsim();
+                        textColor()
+						
+    result = -100;
+    oldresult=result;
+        
+    
+        }
     }
+	
+
+	
+	
     }

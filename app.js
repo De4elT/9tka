@@ -10,7 +10,7 @@ let round = 1;
 let counter = 0;
 let xscore = 0;
 let oscore = 0;
-
+let deep=parseInt(document.getElementById("deep").value);
 
 const board = [
     ['', '', '', '', '', '', '', '', '', '', ''],
@@ -31,7 +31,7 @@ const board = [
 
 const boxes = [...document.querySelectorAll('.box')];
 boxes.forEach(box => box.addEventListener('click', pick));
-
+console.log(deep);
 
 
 function pick(event) {

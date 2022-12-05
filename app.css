@@ -1,6 +1,22 @@
 body {
     font-family: sans-serif;
 }
+input{
+    height: 70px;
+    width: 200px;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: rgb(169, 193, 38);
+    border: solid 4px black;
+    border-radius: 30px;
+    color: white;
+    text-align: left;
+    position: absolute;
+    cursor: pointer;
+    top: 0%;
+    left: 0%;
+}
+
 
 .board {
     margin: auto;
