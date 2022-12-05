@@ -12,7 +12,7 @@ function komputerVsKomputer(){
     let turn=0;
     let turn1=0;
 	let cr=1;
-	let deep=3;
+	let deep=parseInt(document.getElementById("deep").value);
     let grantrow;
 	let grantcolumn;
     
