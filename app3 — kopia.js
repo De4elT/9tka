@@ -9,20 +9,25 @@ function komputerVsKomputer(){
     let oscore = 0;
     let result = -100;
     let oldresult=result;
+	let blocked=-100;
+	let oldblocked=blocked;
     let turn=0;
     let turn1=0;
 	let cr=1;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-	let deep=3;
-========
 	let deep=parseInt(document.getElementById("deep").value);
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-	let deep=3;
->>>>>>> Stashed changes
+	getNum();
+	
     let grantrow;
 	let grantcolumn;
+	let olddeep=deep;
+    let deepincreaser=1;
+	
+
+	function getNum(val) {
+   if (isNaN(deep)) {
+     deep = 5;
+   }
+}
     
     const board = [
         ['', '', '', '', '', '', '', '', '', '', ''],
@@ -40,16 +45,8 @@ function komputerVsKomputer(){
     ];
     
 	var xboard = new Array ();
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    
-========
     var treescore= new Array ();
 	
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    
->>>>>>> Stashed changes
     for(let i=0;i<deep;i++)
 	{
 		 xboard[i] = [
@@ -67,24 +64,10 @@ function komputerVsKomputer(){
         ['', '', '', '', '', '', '', '', '', '', ''],
 		
     ];
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
-
-	}
-    
-    
-
-<<<<<<< Updated upstream
-========
 	
 	treescore[i]=0;
 	
 	}
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
     
     const boxes = [...document.querySelectorAll('.box')];
     boxes.forEach(box => box.addEventListener('click', pick));
@@ -116,21 +99,11 @@ function komputerVsKomputer(){
 		}
 			
 		
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    }
-	}
-	}
-	}
-========
-=======
->>>>>>> Stashed changes
     }
 	}
 	}
 	}
 	
-<<<<<<< Updated upstream
 		function couttree()
 	{
 		for(let i=0;i<deep;i++)
@@ -148,10 +121,7 @@ function komputerVsKomputer(){
 	treescore[i]=0;
 	}					
     }
->>>>>>>> Stashed changes:9tka/app3.js
 	
-=======
->>>>>>> Stashed changes
 	
 	
 	
@@ -178,7 +148,115 @@ function komputerVsKomputer(){
 		
 	}
 	
-							
+	function bot2move(){
+		
+		console.log(bestrow);
+		 console.log(bestcolumn);
+		
+              if ((bestrow == 1 || bestrow == 2 || bestrow == 3 || bestrow == 4 || bestrow == 5 || bestrow == 6 || bestrow == 7 || bestrow == 8 || bestrow == 9) && (bestcolumn == 0)) {
+    
+			if(board[bestrow][0]!="")
+			{
+				alert("ERROR1");
+			}
+			else
+			{
+				board[bestrow][0]=("fa-spider");
+			
+	     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
+	                                bot1.classList.add('fa-spider');
+
+                        round++;
+                    }
+			  }
+    
+    
+                
+				
+				
+				////////////////////////////
+				
+				 if ((bestcolumn == 1 || bestcolumn == 2 || bestcolumn == 3 || bestcolumn == 4 || bestcolumn == 5 || bestcolumn == 6 || bestcolumn == 7 || bestcolumn == 8 || bestcolumn == 9) && (bestrow == 0)) {
+    
+			if(board[0][bestcolumn]!="")
+			{
+				alert("ERROR2");
+			}
+			else
+			{
+				board[0][bestcolumn]=("fa-spider");
+			
+	
+						
+								help = bestrow;
+								text = help.toString();
+	
+
+
+                var bot1 = document.getElementById(text + bestcolumn);
+				                               bot1.classList.add('fa-spider');
+											   
+                   
+                        round++;
+                    }
+				 }
+    
+    
+                
+    ////////////////////////////
+	
+	      if ((bestrow == 1 || bestrow == 2 || bestrow == 3 || bestrow == 4 || bestrow == 5 || bestrow == 6 || bestrow == 7 || bestrow == 8 || bestrow == 9) && (bestcolumn == 10)) {
+    
+	                   	
+						if(board[bestrow][10]!="")
+			{
+				alert("ERROR2");
+			}
+			else
+			{
+				board[bestrow][10]=('fa-spider');
+						
+						
+						
+													help = bestrow;
+								text = help.toString();
+	
+     var bot1= document.getElementById((text) + bestcolumn);
+	 
+	                                bot1.classList.add('fa-spider');            
+			
+                   
+                        round++;
+                    }
+		  }
+		  
+		  
+		  
+				  if ((bestcolumn == 1 || bestcolumn == 2 || bestcolumn == 3 || bestcolumn == 4 || bestcolumn == 5 || bestcolumn == 6 || bestcolumn == 7 || bestcolumn == 8 || bestcolumn == 9) && (bestrow == 10)) {
+    
+							if(board[10][bestcolumn]!="")
+			{
+				alert("ERROR1");
+			}
+			else
+			{
+    
+                 
+    	help = bestrow;
+								text = help.toString();
+    var bot1 = document.getElementById((text) + bestcolumn);
+	                               bot1.classList.add('fa-spider');
+                  
+						                        round++;
+                    }
+				  }
+    
+    
+    }
+
+
+
+			
     
     
     function botmove(){
@@ -187,27 +265,10 @@ function komputerVsKomputer(){
 		{
 			deep=82-round;
 		}
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
-	
-				ccpu();
-	            cpu();
-            console.log("bestrow");
-            console.log(bestrow);
-            console.log("bestcolumn");
-            console.log(bestcolumn);
-			console.log(board[bestrow][bestcolumn]);
-<<<<<<< Updated upstream
-========
 				resettree();
 				ccpu();
 	            cpu();
 				couttree();
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 				grantresetsim ();
 			
 							    let help;
@@ -222,17 +283,7 @@ function komputerVsKomputer(){
 	                                bot1.classList.remove('fa-spider');
 
                     let j = 0;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    console.log(bestrow);				
-    console.log(board[bestrow][0]);
-========
 
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    console.log(bestrow);				
-    console.log(board[bestrow][0]);
->>>>>>> Stashed changes
                     if (board[bestrow][0] !== '') {
                         for (let i = 1; j < 1; i++) {
                             if (board[bestrow][i] == '') {
@@ -250,10 +301,6 @@ function komputerVsKomputer(){
                                     return;
                                 }
                                 var myfield = document.getElementById((bestrow * 10) + i - 1);
-<<<<<<< Updated upstream
-=======
-                                console.log(myfield.dataset);
->>>>>>> Stashed changes
                                 myfield.classList.add('fa-spider');
     
 	     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
@@ -306,14 +353,6 @@ function komputerVsKomputer(){
 								help = i-1;
 								text = help.toString();
                                 var myfield = document.getElementById((text) + bestcolumn);
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-                                console.log(myfield.dataset);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-                                console.log(myfield.dataset);
->>>>>>> Stashed changes
                                 myfield.classList.add('fa-spider');
 								
 								
@@ -434,65 +473,429 @@ function komputerVsKomputer(){
 }
     function col1()
 	{
-		 for(let row=1; row<10; row++)
-        {	
-			if ((board[row][10]=='fa-dragon')&&(board[row][0]==''))
-			{
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-				console.log(row);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log(row);
->>>>>>> Stashed changes
-				board[row][0]=='fa-spider'
-				help = row;
-				text = help.toString();
-                var myfield = document.getElementById((text) + (0));							
-                myfield.classList.add('fa-spider');
-				isdone =1;
-				round++;
-				row=0;
-				break;
-			
-			}
-		}
-	}
-	
-	
-	function col2()
-	{
+		
+		if(cr%2==0)
+		{
+			         let xpoints = 0;
+            let opoints = 0;
 			
 		 for(let row=1; row<10; row++)
         {
-			
-			if ((board[row][0]=='fa-dragon')&&(board[row][10]==''))
-			{
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-							console.log(row);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							console.log(row);
->>>>>>> Stashed changes
-				board[row][10]=='fa-spider'
-				board[row][10]=='fa-spider'
-				help = row;
-				text = help.toString();
-                var myfield = document.getElementById((text) + (10));							
-                myfield.classList.add('fa-spider');
-				isdone =1;
-				row=0;
-				round++;
-				break;
-				
-			}
 
+			let j = 0;
+			
+			if (board[row][10]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+				if(cr==0)
+				{
+					grantrow=row;
+					grantcolumn=10;
+				}
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
 		}
+	}
+	     resetsim();
+	//////////////////////////////////////////////////////////
+	
+	 for(let row=1; row<10; row++)
+        {
+
+			let j = 0;
+			
+			if (board[row][0]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+				if(cr==0)
+				{
+					grantrow=row;
+					grantcolumn=0;
+				}
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+	
+	     resetsim();
+	
+	////////////////////////////////////////
+	
+	 for(let column=1; column<10; column++)
+        {
+
+			let j = 0;
+			
+			if (board[0][column]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+				if(cr==0)
+				{
+					grantrow=0;
+					grantcolumn=column;
+				}
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+
+     resetsim();
+/////////////////////////////////////////////
+	 for(let column=1; column<10; column++)
+        {
+
+			let j = 0;
+			
+			if (board[10][column]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+				if(cr==0)
+				{
+					grantrow=10;
+					grantcolumn=column;
+				}
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+	}
+		
+	
+
+
+
+
+
+
+
+
+
+     resetsim();
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	if(cr%2==1)
+		{
+			         let xpoints = 0;
+            let opoints = 0;
+			
+		 for(let row=1; row<10; row++)
+        {
+
+			let j = 0;
+			
+			if (board[row][10]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+		
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+	     resetsim();
+	//////////////////////////////////////////////////////////
+	
+	 for(let row=1; row<10; row++)
+        {
+
+			let j = 0;
+			
+			if (board[row][0]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+			
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+	
+	     resetsim();
+	
+	////////////////////////////////////////
+	
+	 for(let column=1; column<10; column++)
+        {
+
+			let j = 0;
+			
+			if (board[0][column]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+		
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+     resetsim();
+
+/////////////////////////////////////////////
+	 for(let column=1; column<10; column++)
+        {
+
+			let j = 0;
+			
+			if (board[10][column]=="")
+			{
+				 for (let i = 1; j < 1; i++) {
+		
+				
+				if (cr==deep-1)
+				{
+					checkcost();
+					
+					if ((result-deep+1>oldresult)&&(oldblocked<blocked))
+                                    {
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+                                                                          
+                                    }
+    
+                                j = 1;
+					
+				}
+											else
+							{
+								cr++;
+								col1();
+																resetsim();
+								cr--;
+								j = 1;
+								
+								
+				}
+			}
+		}
+	}
+	}	
+		
+		
+		
+		
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	}
+	
+	
+	
+	
+	
     
         function cpuset()
 		{
@@ -516,6 +919,9 @@ function komputerVsKomputer(){
 	
 	function ccpu()
 	{
+						grantresetsim ();
+						result=-100;
+						blocked=-100;
 		cr=0;
 		  bestrow=100;
         bestcolumn=100;
@@ -557,14 +963,6 @@ function komputerVsKomputer(){
     
                 
                          if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-							 	console.log("01");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							 	console.log("01");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
 							
                             if (xboard[cr][row][i] == '') {
@@ -576,15 +974,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								
->>>>>>> Stashed changes
 								if(cr==0)
 								{
 									grantrow=row;
@@ -596,13 +986,22 @@ function komputerVsKomputer(){
                                         checkcost();
     
                                         
-                                    if (result>oldresult)
+                                    if (oldblocked<blocked)
                                     {
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                                                           
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
+									
     
                                 j = 1;
                                 
@@ -610,14 +1009,6 @@ function komputerVsKomputer(){
 																else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-																console.log("Wysyłam w przyszłość1!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość1!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -645,21 +1036,6 @@ function komputerVsKomputer(){
         for(let column=1; column<10; column++)
         {	
     
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
-    
-                    let j = 0;
-    
-                
-           if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-spider')) {
-			   	console.log("02");
-                        for (let i = 1; j < 1; i++) {
-                            if (xboard[cr][i][column] == '') {
-    
-<<<<<<< Updated upstream
-========
     
                     let j = 0;
     
@@ -668,20 +1044,11 @@ function komputerVsKomputer(){
                         for (let i = 1; j < 1; i++) {
                             if (xboard[cr][i][column] == '') {
     
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
                                 xboard[cr][i][column] = xboard[cr][i - 1][column];
                                 xboard[cr][i - 1][column] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 								if(cr==0)
 								{
 									grantcolumn=column;
@@ -691,15 +1058,22 @@ function komputerVsKomputer(){
 								if (cr==deep-1)
 								{
                                 checkcost();
-                                    if (result>oldresult)
+                                       if  (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
 											
                                             
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
                                 
@@ -707,14 +1081,6 @@ function komputerVsKomputer(){
 																	else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-																console.log("Wysyłam w przyszłość2!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość2!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -745,14 +1111,6 @@ function komputerVsKomputer(){
                     let j = 0;
     
         if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-				console.log("03");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log("03");
->>>>>>> Stashed changes
 
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][row][i] == '') {
@@ -761,13 +1119,7 @@ function komputerVsKomputer(){
                                 xboard[cr][row][i + 1] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 								if(cr==0)
 								{
 									grantrow=row;
@@ -776,28 +1128,27 @@ function komputerVsKomputer(){
 								if (cr==deep-1)
 								{
                                     checkcost();
-                                    if (result>oldresult)
+                                         if (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestcolumn=grantcolumn;
 											bestrow=grantrow;
                                             
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
 								}
 										else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-																console.log("Wysyłam w przyszłość3!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość3!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -828,14 +1179,6 @@ function komputerVsKomputer(){
                       let j = 0;
                 
            if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-			   	console.log("04");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("04");
->>>>>>> Stashed changes
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][i][column] == '') {
     
@@ -844,13 +1187,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 								if(cr==0)
 								{
 									grantcolumn=column;
@@ -859,27 +1196,26 @@ function komputerVsKomputer(){
 								if (cr==deep-1)
 								{
                                     checkcost();
-                                    if (result>oldresult)
+                                         if  (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
 								}
 										else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								console.log("Wysyłam w przyszłość4!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość4!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -948,14 +1284,6 @@ function komputerVsKomputer(){
     
                 
                          if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-							 	console.log("11");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							 	console.log("11");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
 							
                             if (xboard[cr][row][i] == '') {
@@ -967,42 +1295,34 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								
->>>>>>> Stashed changes
 
                                  if (cr==deep-1)
 								 {									 
                                         checkcost();
     
                                         
-                                    if (result>oldresult)
+                                         if  (oldblocked<blocked)
                                     {
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                                                           
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
 								 }
 								else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								console.log("Wysyłam w przyszłość5!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość5!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1036,14 +1356,6 @@ function komputerVsKomputer(){
     
                 
            if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-			   	console.log("12");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("12");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
                             if (xboard[cr][i][column] == '') {
     
@@ -1051,26 +1363,27 @@ function komputerVsKomputer(){
                                 xboard[cr][i - 1][column] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 
 								if (cr==deep-1)
 								{
 									
                                 checkcost();
-                                    if (result>oldresult)
+                                         if  (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                             
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
                                 
@@ -1078,14 +1391,6 @@ function komputerVsKomputer(){
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								console.log("Wysyłam w przyszłość6!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość6!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1117,14 +1422,6 @@ function komputerVsKomputer(){
                     let j = 0;
     
         if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-				console.log("13");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log("13");
->>>>>>> Stashed changes
 
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][row][i] == '') {
@@ -1133,40 +1430,33 @@ function komputerVsKomputer(){
                                 xboard[cr][row][i + 1] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 
 								if (cr==deep-1)
 								{
 									
                                     checkcost();
-                                    if (result>oldresult)
+                                         if  (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                             
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
                                 }
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								console.log("Wysyłam w przyszłość7!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość7!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1197,14 +1487,6 @@ function komputerVsKomputer(){
                       let j = 0;
                 
            if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-			   	console.log("14");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("14");
->>>>>>> Stashed changes
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][i][column] == '') {
     
@@ -1213,40 +1495,33 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 
 								if (cr==deep-1)
 								{
 									
                                     checkcost();
-                                    if (result>oldresult)
+                                         if  (oldblocked<blocked)
                                     {
-    
+										oldblocked=blocked;
                                             oldresult=result;
                                             bestrow=grantrow;
                                             bestcolumn=grantcolumn;
                                            
                                     }
+									if((oldblocked=blocked)&&(result>oldresult))
+									{
+										oldblocked=blocked;
+                                            oldresult=result;
+                                            bestrow=grantrow;
+                                            bestcolumn=grantcolumn;
+									}
     
                                 j = 1;
                                 }
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								console.log("Wysyłam w przyszłość8!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość8!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1296,6 +1571,7 @@ function komputerVsKomputer(){
         
         function checkcost()					
         {
+			
 			
              let xpoints = 0;
              let opoints = 0;
@@ -1508,26 +1784,17 @@ function komputerVsKomputer(){
                     }
                 }
             }
-<<<<<<< Updated upstream
 			
 			
 			
 			
 			
-=======
-    
->>>>>>> Stashed changes
             if (xpoints > opoints) {
                 xscore = xscore + 1;
             }
             if (opoints > xpoints) {
                 oscore = oscore + 1;
             }
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    
-			result = oscore; 
-========
 
 
 //////////////////////
@@ -1618,12 +1885,8 @@ function komputerVsKomputer(){
 			
 			
     
-			result =oscore+blockedx-xscore-blockedo; 
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    
-			result = oscore; 
->>>>>>> Stashed changes
+			result =oscore-xscore; 
+			blocked =blockedx-blockedo;
 			              xpoints = 0;
               opoints = 0;
 			  xscore=0;
@@ -1978,15 +2241,78 @@ function komputerVsKomputer(){
                 }
     
             }
-        if (round == 82) {
+        function textColor() {
+            if (round % 2 === 0) {
+                var element2 = document.getElementById("dragons");
+                var element = document.getElementById("spiders");
+                element.style.color = "green";
+                element2.style.color = "lightgrey";
+            }
+            else {
+                var element = document.getElementById("spiders");
+                var element2 = document.getElementById("dragons");
+                element2.style.color = "red";
+                element.style.color = "lightgrey";
+            }
+    
+        }
+        
+		        if((round!=allowedmove)&&(round <= 45))
+        {
+         cpuset();
+		 
+
+		}
+		
+		      if((round!=allowedmove)&&((round < 10)&&(round >= 46)))
+        {
+			olddeep=3;
+			deep=olddeep;
+	
+			if(deepincreaser<deep)
+			{
+				deep=deepincreaser;
+			}
+			
+			
+			
+		    result = -100;
+    oldresult=result;
+	blocked=-100;
+	oldblocked=blocked
+		ccpu();
+         col1();
+
+		 bot2move();
+		 			resetsim();
+
+		deepincreaser++;
+		}
+   
+	
+	       if((round!=allowedmove)&&(round > 46))
+        {
+			setTimeout(() => { console.log("Waiting!"); }, 100);
+             result = -100;
+			 	blocked=-100;
+            botmove();
+			resetsim();
+                        textColor()
+						
+    result = -100;
+    oldresult=result;
+	blocked=-100;
+	oldblocked=blocked
+        
+    
+        }
+		
+		    if (round == 82) {
     
              xpoints = 0;
              opoints = 0;
-<<<<<<< Updated upstream
 			 xscore=0;
 			 oscore=0;
-=======
->>>>>>> Stashed changes
     
     
             let header = document.querySelector("h2");
@@ -1998,6 +2324,7 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 1; j < 4; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2027,6 +2354,7 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 4; j < 7; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2055,6 +2383,7 @@ function komputerVsKomputer(){
             for (let i = 1; i < 4; i++) {
     
                 for (let j = 7; j < 10; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2084,6 +2413,7 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 1; j < 4; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2113,6 +2443,7 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 4; j < 7; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2142,6 +2473,7 @@ function komputerVsKomputer(){
             for (let i = 4; i < 7; i++) {
     
                 for (let j = 7; j < 10; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2171,6 +2503,7 @@ function komputerVsKomputer(){
             for (let i = 7; i < 10; i++) {
     
                 for (let j = 1; j < 4; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2200,6 +2533,7 @@ function komputerVsKomputer(){
             for (let i = 7; i < 10; i++) {
     
                 for (let j = 4; j < 7; j++) {
+					console.log(board[i][j]);
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
                     }
@@ -2229,6 +2563,7 @@ function komputerVsKomputer(){
             for (let i = 7; i < 10; i++) {
     
                 for (let j = 7; j < 10; j++) {
+					console.log(board[i][j]);
     
                     if (board[i][j] == 'fa-dragon') {
                         xpoints = xpoints + 1;
@@ -2273,45 +2608,10 @@ function komputerVsKomputer(){
             header.innerText = "Sectors conquered by Dragons: " + xscore + "     ||    Sectors conquered by Spiders: " + oscore;
             round++;
         }
-        function textColor() {
-            if (round % 2 === 0) {
-                var element2 = document.getElementById("dragons");
-                var element = document.getElementById("spiders");
-                element.style.color = "green";
-                element2.style.color = "lightgrey";
-            }
-            else {
-                var element = document.getElementById("spiders");
-                var element2 = document.getElementById("dragons");
-                element2.style.color = "red";
-                element.style.color = "lightgrey";
-            }
-    
-        }
-        
-		        if((round!=allowedmove)&&(round <= 45))
-        {
-         cpuset();
-		 
-
-		}
-   
-	
-	       if((round!=allowedmove)&&(round > 46))
-        {
-         
-            botmove();
-			resetsim();
-                        textColor()
-						
-    result = -100;
-    oldresult=result;
-        
-    
-        }
     }
 	
 
 	
 	
     }
+	

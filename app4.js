@@ -12,15 +12,7 @@ function komputerVsKomputer(){
     let turn=0;
     let turn1=0;
 	let cr=1;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-	let deep=3;
-========
 	let deep=parseInt(document.getElementById("deep").value);
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-	let deep=3;
->>>>>>> Stashed changes
     let grantrow;
 	let grantcolumn;
     
@@ -40,16 +32,8 @@ function komputerVsKomputer(){
     ];
     
 	var xboard = new Array ();
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    
-========
     var treescore= new Array ();
 	
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    
->>>>>>> Stashed changes
     for(let i=0;i<deep;i++)
 	{
 		 xboard[i] = [
@@ -67,24 +51,8 @@ function komputerVsKomputer(){
         ['', '', '', '', '', '', '', '', '', '', ''],
 		
     ];
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
-
+		treescore[i]=0;
 	}
-    
-    
-
-<<<<<<< Updated upstream
-========
-	
-	treescore[i]=0;
-	
-	}
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
     
     const boxes = [...document.querySelectorAll('.box')];
     boxes.forEach(box => box.addEventListener('click', pick));
@@ -116,42 +84,11 @@ function komputerVsKomputer(){
 		}
 			
 		
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-    }
-	}
-	}
-	}
-========
-=======
->>>>>>> Stashed changes
     }
 	}
 	}
 	}
 	
-<<<<<<< Updated upstream
-		function couttree()
-	{
-		for(let i=0;i<deep;i++)
-	{
-	console.log("XXXXX DEEP: " +(i+1) +" Value " +treescore[i]);
-	}	
-	}
-	
-	
-	
-	function resettree()
-	{
-	for(let i=0;i<deep;i++)
-	{
-	treescore[i]=0;
-	}					
-    }
->>>>>>>> Stashed changes:9tka/app3.js
-	
-=======
->>>>>>> Stashed changes
 	
 	
 	
@@ -178,8 +115,23 @@ function komputerVsKomputer(){
 		
 	}
 	
-							
-    
+	function couttree()
+	{
+		for(let i=0;i<deep;i++)
+	{
+	console.log("XXXXX DEEP: " +i +" Value " +treescore[i]);
+	}	
+	}
+	
+	
+	
+	function resettree()
+	{
+	for(let i=0;i<deep;i++)
+	{
+	treescore[i]=0;
+	}					
+    }
     
     function botmove(){
 		
@@ -187,10 +139,6 @@ function komputerVsKomputer(){
 		{
 			deep=82-round;
 		}
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
 	
 				ccpu();
 	            cpu();
@@ -199,15 +147,6 @@ function komputerVsKomputer(){
             console.log("bestcolumn");
             console.log(bestcolumn);
 			console.log(board[bestrow][bestcolumn]);
-<<<<<<< Updated upstream
-========
-				resettree();
-				ccpu();
-	            cpu();
-				couttree();
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
 				grantresetsim ();
 			
 							    let help;
@@ -222,17 +161,8 @@ function komputerVsKomputer(){
 	                                bot1.classList.remove('fa-spider');
 
                     let j = 0;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
     console.log(bestrow);				
     console.log(board[bestrow][0]);
-========
-
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    console.log(bestrow);				
-    console.log(board[bestrow][0]);
->>>>>>> Stashed changes
                     if (board[bestrow][0] !== '') {
                         for (let i = 1; j < 1; i++) {
                             if (board[bestrow][i] == '') {
@@ -250,10 +180,7 @@ function komputerVsKomputer(){
                                     return;
                                 }
                                 var myfield = document.getElementById((bestrow * 10) + i - 1);
-<<<<<<< Updated upstream
-=======
                                 console.log(myfield.dataset);
->>>>>>> Stashed changes
                                 myfield.classList.add('fa-spider');
     
 	     var bot1 = document.getElementById((bestrow * 10) + bestcolumn);
@@ -306,14 +233,7 @@ function komputerVsKomputer(){
 								help = i-1;
 								text = help.toString();
                                 var myfield = document.getElementById((text) + bestcolumn);
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
                                 console.log(myfield.dataset);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-                                console.log(myfield.dataset);
->>>>>>> Stashed changes
                                 myfield.classList.add('fa-spider');
 								
 								
@@ -438,14 +358,7 @@ function komputerVsKomputer(){
         {	
 			if ((board[row][10]=='fa-dragon')&&(board[row][0]==''))
 			{
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 				console.log(row);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log(row);
->>>>>>> Stashed changes
 				board[row][0]=='fa-spider'
 				help = row;
 				text = help.toString();
@@ -469,14 +382,7 @@ function komputerVsKomputer(){
 			
 			if ((board[row][0]=='fa-dragon')&&(board[row][10]==''))
 			{
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 							console.log(row);
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							console.log(row);
->>>>>>> Stashed changes
 				board[row][10]=='fa-spider'
 				board[row][10]=='fa-spider'
 				help = row;
@@ -557,14 +463,7 @@ function komputerVsKomputer(){
     
                 
                          if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 							 	console.log("01");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							 	console.log("01");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
 							
                             if (xboard[cr][row][i] == '') {
@@ -576,15 +475,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								
->>>>>>> Stashed changes
 								if(cr==0)
 								{
 									grantrow=row;
@@ -610,14 +501,7 @@ function komputerVsKomputer(){
 																else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 																console.log("Wysyłam w przyszłość1!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość1!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -645,10 +529,6 @@ function komputerVsKomputer(){
         for(let column=1; column<10; column++)
         {	
     
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-=======
->>>>>>> Stashed changes
     
                     let j = 0;
     
@@ -658,30 +538,11 @@ function komputerVsKomputer(){
                         for (let i = 1; j < 1; i++) {
                             if (xboard[cr][i][column] == '') {
     
-<<<<<<< Updated upstream
-========
-    
-                    let j = 0;
-    
-                
-           if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-spider')) {
-                        for (let i = 1; j < 1; i++) {
-                            if (xboard[cr][i][column] == '') {
-    
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
                                 xboard[cr][i][column] = xboard[cr][i - 1][column];
                                 xboard[cr][i - 1][column] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 								if(cr==0)
 								{
 									grantcolumn=column;
@@ -707,14 +568,7 @@ function komputerVsKomputer(){
 																	else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 																console.log("Wysyłam w przyszłość2!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość2!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -745,14 +599,7 @@ function komputerVsKomputer(){
                     let j = 0;
     
         if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 				console.log("03");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log("03");
->>>>>>> Stashed changes
 
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][row][i] == '') {
@@ -761,13 +608,7 @@ function komputerVsKomputer(){
                                 xboard[cr][row][i + 1] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 								if(cr==0)
 								{
 									grantrow=row;
@@ -790,14 +631,7 @@ function komputerVsKomputer(){
 										else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 																console.log("Wysyłam w przyszłość3!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-																console.log("Wysyłam w przyszłość3!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -828,14 +662,7 @@ function komputerVsKomputer(){
                       let j = 0;
                 
            if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-spider')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 			   	console.log("04");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("04");
->>>>>>> Stashed changes
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][i][column] == '') {
     
@@ -844,13 +671,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 								if(cr==0)
 								{
 									grantcolumn=column;
@@ -872,14 +693,7 @@ function komputerVsKomputer(){
 										else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 								console.log("Wysyłam w przyszłość4!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość4!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -948,14 +762,7 @@ function komputerVsKomputer(){
     
                 
                          if ((xboard[cr][row][0] !== '') && (xboard[cr][row][0] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 							 	console.log("11");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-							 	console.log("11");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
 							
                             if (xboard[cr][row][i] == '') {
@@ -967,15 +774,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-								
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 
                                  if (cr==deep-1)
 								 {									 
@@ -995,14 +794,7 @@ function komputerVsKomputer(){
 								else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 								console.log("Wysyłam w przyszłość5!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość5!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1036,14 +828,7 @@ function komputerVsKomputer(){
     
                 
            if ((xboard[cr][0][column] !== '') && (xboard[cr][0][column] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 			   	console.log("12");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("12");
->>>>>>> Stashed changes
                         for (let i = 1; j < 1; i++) {
                             if (xboard[cr][i][column] == '') {
     
@@ -1051,14 +836,8 @@ function komputerVsKomputer(){
                                 xboard[cr][i - 1][column] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
 								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
-
+								
 								if (cr==deep-1)
 								{
 									
@@ -1078,14 +857,7 @@ function komputerVsKomputer(){
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 								console.log("Wysyłam w przyszłość6!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość6!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1117,14 +889,7 @@ function komputerVsKomputer(){
                     let j = 0;
     
         if ((xboard[cr][row][10] !== '') && (xboard[cr][row][10] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 				console.log("13");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-				console.log("13");
->>>>>>> Stashed changes
 
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][row][i] == '') {
@@ -1133,13 +898,7 @@ function komputerVsKomputer(){
                                 xboard[cr][row][i + 1] = '';
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 
 								if (cr==deep-1)
 								{
@@ -1159,14 +918,7 @@ function komputerVsKomputer(){
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 								console.log("Wysyłam w przyszłość7!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość7!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1197,14 +949,7 @@ function komputerVsKomputer(){
                       let j = 0;
                 
            if ((xboard[cr][10][column] !== '') && (xboard[cr][10][column] == 'fa-dragon')) {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 			   	console.log("14");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-			   	console.log("14");
->>>>>>> Stashed changes
                         for (let i = 9; j < 1; i--) {
                             if (xboard[cr][i][column] == '') {
     
@@ -1213,13 +958,7 @@ function komputerVsKomputer(){
 
                             }
                             else {
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
-========
-								treescore[cr]=treescore[cr]+1;
->>>>>>>> Stashed changes:9tka/app3.js
-=======
->>>>>>> Stashed changes
+																treescore[cr]=treescore[cr]+1;
 
 								if (cr==deep-1)
 								{
@@ -1239,14 +978,7 @@ function komputerVsKomputer(){
 									else
 							{
 								cr++;
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
 								console.log("Wysyłam w przyszłość8!");
-========
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-								console.log("Wysyłam w przyszłość8!");
->>>>>>> Stashed changes
 								cpu();
 																resetsim();
 								cr--;
@@ -1508,122 +1240,15 @@ function komputerVsKomputer(){
                     }
                 }
             }
-<<<<<<< Updated upstream
-			
-			
-			
-			
-			
-=======
     
->>>>>>> Stashed changes
             if (xpoints > opoints) {
                 xscore = xscore + 1;
             }
             if (opoints > xpoints) {
                 oscore = oscore + 1;
             }
-<<<<<<< Updated upstream
-<<<<<<<< Updated upstream:onlym.js
     
-			result = oscore; 
-========
-
-
-//////////////////////
-			
-			let blockedo =0;
-			
-			
-
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][i][0]=='fa-spider')&&(xboard[cr][i][1]!=''))
-			{
-				blockedo++;
-			}
-			}
-			
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][i][10]=='fa-spider')&&(xboard[cr][i][9]!=''))
-			{
-				blockedo++;
-			}
-			}
-			
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][0][i]=='fa-spider')&&(xboard[cr][1][i]!=''))
-			{
-				blockedo++;
-			}
-			}
-			
-				for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][10][i]=='fa-spider')&&(xboard[cr][9][i]!=''))
-			{
-				blockedo++;
-			}
-			}
-			
-			
-			
-			/////////////////////
-			
-			let blockedx = 0;
-			
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][i][0]=='fa-dragon')&&(xboard[cr][i][1]!=''))
-			{
-				blockedx++;
-			}
-			}
-			
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][i][10]=='fa-dragon')&&(xboard[cr][i][9]!=''))
-			{
-				blockedx++;
-			}
-			}
-			
-			for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][0][i]=='fa-dragon')&&(xboard[cr][1][i]!=''))
-			{
-				blockedx++;
-			}
-			}
-			
-				for(let i=1; i<10;i++)
-			{
-			if ((xboard[cr][10][i]=='fa-dragon')&&(xboard[cr][9][i]!=''))
-			{
-				blockedx++;
-			}
-			}
-			
-			//////////////
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-    
-			result =oscore+blockedx-xscore-blockedo; 
->>>>>>>> Stashed changes:9tka/app3.js
-=======
-    
-			result = oscore; 
->>>>>>> Stashed changes
+			result = oscore-xscore; 
 			              xpoints = 0;
               opoints = 0;
 			  xscore=0;
@@ -1982,11 +1607,6 @@ function komputerVsKomputer(){
     
              xpoints = 0;
              opoints = 0;
-<<<<<<< Updated upstream
-			 xscore=0;
-			 oscore=0;
-=======
->>>>>>> Stashed changes
     
     
             let header = document.querySelector("h2");
